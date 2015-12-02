@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ZBannerView.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSArray * images = @[@"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg", @"5.jpg", @"6.jpg", @"7.jpg"];
+    
+    ZBannerView * bannerView = [ZBannerView bannerView];
+    [self.view addSubview:bannerView];
+    bannerView.imageNames = images;
 }
 
 - (void)didReceiveMemoryWarning {
