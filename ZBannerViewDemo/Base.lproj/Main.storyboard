@@ -1,26 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tgm-46-Ioa">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="vES-fN-Vr5">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <navigationController id="Tgm-46-Ioa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y2W-jr-HZH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1PH-kg-mft" kind="relationship" relationship="rootViewController" id="tDE-7R-4Wq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxh-bM-8eK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-341" y="142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="953-7c-rl0">
+            <objects>
+                <viewController id="1PH-kg-mft" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="C0R-qr-iXU"/>
+                        <viewControllerLayoutGuide type="bottom" id="smd-FN-2Sf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="ihH-dO-rrR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GST-se-Y7q">
+                                <rect key="frame" x="200" y="175" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KNW-uT-pz6"/>
+                                    <constraint firstAttribute="width" constant="200" id="XQG-QW-I5J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="纯代码展示Banner"/>
+                                <connections>
+                                    <action selector="demo1:" destination="1PH-kg-mft" eventType="touchUpInside" id="gwx-qV-C2Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qo9-Wo-g1t">
+                                <rect key="frame" x="200" y="375" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="C0d-bt-ctm"/>
+                                    <constraint firstAttribute="width" constant="200" id="DU1-WL-oWK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Xib绑定展示Banner"/>
+                                <connections>
+                                    <action selector="demo2:" destination="1PH-kg-mft" eventType="touchUpInside" id="3tl-X2-2oR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GST-se-Y7q" firstAttribute="centerX" secondItem="ihH-dO-rrR" secondAttribute="centerX" id="I51-pS-hrg"/>
+                            <constraint firstItem="Qo9-Wo-g1t" firstAttribute="centerY" secondItem="ihH-dO-rrR" secondAttribute="centerY" constant="100" id="R8q-4V-dzb"/>
+                            <constraint firstItem="Qo9-Wo-g1t" firstAttribute="centerX" secondItem="ihH-dO-rrR" secondAttribute="centerX" id="iUk-9O-S6u"/>
+                            <constraint firstItem="GST-se-Y7q" firstAttribute="centerY" secondItem="ihH-dO-rrR" secondAttribute="centerY" constant="-100" id="sTM-AX-Uss"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9cv-OF-o6w"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gk1-HG-fOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="352" y="142"/>
         </scene>
     </scenes>
 </document>

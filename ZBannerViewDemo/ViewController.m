@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "ZBannerView.h"
+#import "ZDemo1Controller.h"
+#import "ZDemo2Controller.h"
 
 @interface ViewController ()
 
@@ -18,17 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    NSArray * images = @[@"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg", @"5.jpg", @"6.jpg", @"7.jpg"];
-    
-    ZBannerView * bannerView = [ZBannerView bannerView];
-    [self.view addSubview:bannerView];
-    bannerView.imageNames = images;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)demo1:(id)sender {
+    
+    ZDemo1Controller * demo1 = [[ZDemo1Controller alloc] init];
+    [self.navigationController pushViewController:demo1 animated:YES];
+}
+
+
+- (IBAction)demo2:(id)sender {
+    
+    ZDemo2Controller * demo2 = [[ZDemo2Controller alloc] init];
+    [self.navigationController pushViewController:demo2 animated:YES];
 }
 
 @end
