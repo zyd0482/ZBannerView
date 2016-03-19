@@ -47,20 +47,8 @@ typedef NS_ENUM(NSUInteger, ZBannerScrollType) {
 
 #pragma mark - 生命周期函数
 - (void)removeFromSuperview {
-    if ([_timer isValid]) {
-        [_timer invalidate];
-    }
+    [self stopTimer];
     [super removeFromSuperview];
-}
-
-- (void)removeBannerView {
-    if ([_timer isValid]) {
-        [_timer invalidate];
-    }
-    [self.reuseImageView removeFromSuperview];
-    [self.displayImageView removeFromSuperview];
-    [self.scrollView removeFromSuperview];
-    self.imageArray = nil;
 }
 
 + (instancetype)bannerView {
