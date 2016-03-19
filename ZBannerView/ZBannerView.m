@@ -46,10 +46,21 @@ typedef NS_ENUM(NSUInteger, ZBannerScrollType) {
 }
 
 #pragma mark - 生命周期函数
-- (void)dealloc {
+- (void)removeFromSuperview {
     if ([_timer isValid]) {
         [_timer invalidate];
     }
+    [super removeFromSuperview];
+}
+
+- (void)removeBannerView {
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+    [self.reuseImageView removeFromSuperview];
+    [self.displayImageView removeFromSuperview];
+    [self.scrollView removeFromSuperview];
+    self.imageArray = nil;
 }
 
 + (instancetype)bannerView {
@@ -147,10 +158,12 @@ typedef NS_ENUM(NSUInteger, ZBannerScrollType) {
 #pragma mark - 加载图片
 - (void)loadDisplayImage {
     if (self.imageNames) {
-        self.displayImageView.image = [UIImage imageNamed:self.imageArray[self.currentImageIndex]];
+        NSString * fileUrl = [[NSBundle mainBundle] pathForResource:self.imageArray[self.currentImageIndex] ofType:nil];
+        self.displayImageView.image = [UIImage imageWithContentsOfFile:fileUrl];
+//        self.displayImageView.image = [UIImage imageNamed:self.imageArray[self.currentImageIndex]];
     } else {
         UIImage * placeholderImage = self.placeholderImageName ? [UIImage imageNamed:self.placeholderImageName] : nil;
-       [self.displayImageView sd_setImageWithURL:self.imageArray[self.currentImageIndex] placeholderImage:placeholderImage];
+        [self.displayImageView sd_setImageWithURL:self.imageArray[self.currentImageIndex] placeholderImage:placeholderImage];
     }
     
     [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0)];
@@ -170,7 +183,9 @@ typedef NS_ENUM(NSUInteger, ZBannerScrollType) {
     }
     
     if (self.imageNames) {
-        self.reuseImageView.image = [UIImage imageNamed:self.imageArray[reuseIndex]];
+        NSString * fileUrl = [[NSBundle mainBundle] pathForResource:self.imageArray[reuseIndex] ofType:nil];
+        self.reuseImageView.image = [UIImage imageWithContentsOfFile:fileUrl];
+//        self.reuseImageView.image = [UIImage imageNamed:self.imageArray[reuseIndex]];
     } else {
         UIImage * placeholderImage = self.placeholderImageName ? [UIImage imageNamed:self.placeholderImageName] : nil;
         [self.reuseImageView sd_setImageWithURL:self.imageUrls[reuseIndex] placeholderImage:placeholderImage];
